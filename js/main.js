@@ -1,13 +1,3 @@
-
-function getRandomInteger (a, b) {
-  const lower = Math.ceil(Math.min(a, b));
-  const upper = Math.floor(Math.max(a, b));
-  const result = Math.random() * (upper - lower + 1) + lower;
-  return Math.floor(result);
-}
-
-let idCounter = 1;
-
 const DESCRIPTIONS = [
   'Фография интересная',
   'Фография красивая',
@@ -64,6 +54,15 @@ const MAXNUMBERAVATAR = 6;
 const MININDEXDESCRIPTON = 0;
 const MINLENGTHCOMMENTS = 1;
 const MAXLENGTHPHOTOS = 25;
+
+let idCounter = 1;
+
+function getRandomInteger (a, b) {
+  const lower = Math.ceil(Math.min(a, b));
+  const upper = Math.floor(Math.max(a, b));
+  const result = Math.random() * (upper - lower + 1) + lower;
+  return Math.floor(result);
+}
 
 function getComments () {
   return function () {
