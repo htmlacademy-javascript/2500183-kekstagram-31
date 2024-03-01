@@ -55,13 +55,23 @@ const SENTENCES = [
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'
 ];
 
+const MINLIKES = 15;
+const MAXLIKES = 200;
+const MINCOMMENTS = 0;
+const MAXCOMMENTS = 30;
+const MINNUMBERAVATAR = 1;
+const MAXNUMBERAVATAR = 6;
+const MININDEXDESCRIPTON = 0;
+const MINLENGTHCOMMENTS = 1;
+const MAXLENGTHPHOTOS = 25;
+
 function getComments () {
   return function () {
     const createComments = {};
-    const randomIdComments = getRandomInteger(1,300);
+    const randomIdComments = getRandomInteger(MINCOMMENTS,MAXCOMMENTS);
     const randomSentencesIndex = getRandomInteger(0, SENTENCES.length - 1);
     const randomNameIndex = getRandomInteger(0, NAMES.length - 1);
-    const randomAvatarNumber = getRandomInteger(1,6);
+    const randomAvatarNumber = getRandomInteger(MINNUMBERAVATAR,MAXNUMBERAVATAR);
     createComments.id = randomIdComments;
     createComments.avatar = `img/avatar-${randomAvatarNumber}.svg`;
     createComments.message = SENTENCES[randomSentencesIndex];
@@ -75,13 +85,13 @@ function getPhotos () {
 
   return function () {
     const createPhoto = {};
-    const randomDescriptionIndex = getRandomInteger(0, DESCRIPTIONS.length - 1);
-    const counterLikes = getRandomInteger(15,200);
+    const randomDescriptionIndex = getRandomInteger(MININDEXDESCRIPTON, DESCRIPTIONS.length - 1);
+    const counterLikes = getRandomInteger(MINLIKES,MAXLIKES);
     createPhoto.id = idCounter;
     createPhoto.url = `photos/${idCounter}'.jpg`;
     createPhoto.description = DESCRIPTIONS[randomDescriptionIndex];
     createPhoto.likes = counterLikes;
-    createPhoto.comments = Array.from({length: 1}, getComments());
+    createPhoto.comments = Array.from({length: MINLENGTHCOMMENTS}, getComments());
     idCounter++;
     return createPhoto;
 
@@ -89,9 +99,9 @@ function getPhotos () {
 
 }
 
-Array.from({length:25}, getPhotos());
+Array.from({length:MAXLENGTHPHOTOS}, getPhotos());
 
-//console.log(Array.from({length:25}, getPhotos()));
+//console.log(Array.from({length:MAXLENGTHPHOTOS}, getPhotos()));
 /*function getCounter () {
 	let counter = 1 ;
 	return function () {
