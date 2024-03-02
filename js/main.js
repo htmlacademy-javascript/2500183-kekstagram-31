@@ -45,15 +45,14 @@ const SENTENCES = [
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'
 ];
 
-const MINLIKES = 15;
-const MAXLIKES = 200;
-const MINCOMMENTS = 0;
-const MAXCOMMENTS = 30;
-const MINNUMBERAVATAR = 1;
-const MAXNUMBERAVATAR = 6;
-const MININDEXDESCRIPTON = 0;
-const MINLENGTHCOMMENTS = 1;
-const MAXLENGTHPHOTOS = 25;
+const MIN_LIKES = 15;
+const MAX_LIKES = 200;
+const MIN_NUMBER_AVATAR = 1;
+const MAX_NUMBER_AVATAR = 6;
+const MIN_INDEX_DESCRIPTON = 0;
+const MIN_LENGTH_COMMENTS = 0;
+const MAX_LENGTH_COMMENTS = 30;
+const MAX_LENGTH_PHOTOS = 25;
 
 let idCounter = 1;
 
@@ -67,46 +66,31 @@ function getRandomInteger (a, b) {
 function getComments () {
   return function () {
     const createComments = {};
-    const randomIdComments = getRandomInteger(MINCOMMENTS,MAXCOMMENTS);
     const randomSentencesIndex = getRandomInteger(0, SENTENCES.length - 1);
     const randomNameIndex = getRandomInteger(0, NAMES.length - 1);
-    const randomAvatarNumber = getRandomInteger(MINNUMBERAVATAR,MAXNUMBERAVATAR);
-    createComments.id = randomIdComments;
+    const randomAvatarNumber = getRandomInteger(MIN_NUMBER_AVATAR,MAX_NUMBER_AVATAR);
+    createComments.id = idCounter;
     createComments.avatar = `img/avatar-${randomAvatarNumber}.svg`;
     createComments.message = SENTENCES[randomSentencesIndex];
     createComments.name = NAMES[randomNameIndex];
+    idCounter++;
     return createComments;
-
   };
 }
 
 function getPhotos () {
-
   return function () {
     const createPhoto = {};
-    const randomDescriptionIndex = getRandomInteger(MININDEXDESCRIPTON, DESCRIPTIONS.length - 1);
-    const counterLikes = getRandomInteger(MINLIKES,MAXLIKES);
+    const randomDescriptionIndex = getRandomInteger(MIN_INDEX_DESCRIPTON, DESCRIPTIONS.length - 1);
+    const counterLikes = getRandomInteger(MIN_LIKES,MAX_LIKES);
     createPhoto.id = idCounter;
-    createPhoto.url = `photos/${idCounter}'.jpg`;
+    createPhoto.url = `photos/${idCounter}.jpg`;
     createPhoto.description = DESCRIPTIONS[randomDescriptionIndex];
     createPhoto.likes = counterLikes;
-    createPhoto.comments = Array.from({length: MINLENGTHCOMMENTS}, getComments());
+    createPhoto.comments = Array.from({length: getRandomInteger(MIN_LENGTH_COMMENTS,MAX_LENGTH_COMMENTS)}, getComments());
     idCounter++;
     return createPhoto;
-
   };
-
 }
 
-Array.from({length:MAXLENGTHPHOTOS}, getPhotos());
-
-//console.log(Array.from({length:MAXLENGTHPHOTOS}, getPhotos()));
-/*function getCounter () {
-	let counter = 1 ;
-	return function () {
-		counter++;
-	}
-}
-*/
-
-
+Array.from({length:MAX_LENGTH_PHOTOS}, getPhotos());
