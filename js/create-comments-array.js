@@ -1,4 +1,4 @@
-import {DESCRIPTIONS,NAMES,SENTENCES} from './data.js';
+import {DESCRIPTIONS,NAMES,SENTENCES} from './data-test.js';
 import {getRandomInteger} from './util.js';
 
 const MIN_NUMBER_AVATAR = 1;
