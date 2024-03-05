@@ -1,5 +1,5 @@
 import {getRandomInteger} from './util.js';
-import {DESCRIPTIONS,NAMES,SENTENCES} from './data.js';
+import {DESCRIPTIONS,NAMES,SENTENCES} from './data-test.js';
 import {getComments} from './create-comments-array.js';
 
 const MIN_LIKES = 15;
