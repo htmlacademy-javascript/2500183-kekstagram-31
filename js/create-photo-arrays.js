@@ -1,13 +1,13 @@
 import {getRandomInteger} from './util.js';
-import {DESCRIPTIONS,NAMES,SENTENCES} from './data-test.js';
-import {getComments} from './create-comments-array.js';
+import {getDataArrayMiniatures} from './data-test.js';
+import {getComments} from './create-comments-arrays.js';
 
 const MIN_LIKES = 15;
 const MAX_LIKES = 200;
-
 const MIN_INDEX_DESCRIPTON = 0;
 const MIN_LENGTH_COMMENTS = 0;
 const MAX_LENGTH_COMMENTS = 30;
+const {DESCRIPTIONS} = getDataArrayMiniatures();
 
 let idCounter = 1;
 

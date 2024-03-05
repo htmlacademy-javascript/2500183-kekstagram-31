@@ -1,8 +1,9 @@
-import {DESCRIPTIONS,NAMES,SENTENCES} from './data-test.js';
+import {getDataArrayMiniatures} from './data-test.js';
 import {getRandomInteger} from './util.js';
 
 const MIN_NUMBER_AVATAR = 1;
 const MAX_NUMBER_AVATAR = 6;
+const {NAMES,SENTENCES} = getDataArrayMiniatures();
 
 let idCounter = 1;
 
