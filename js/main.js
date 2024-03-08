@@ -1,2 +1,1 @@
 import './photos/thumbnails.js';
-
