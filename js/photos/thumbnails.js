@@ -1,7 +1,6 @@
 const template = document.querySelector('#picture').content.querySelector('.picture');
 const container = document.querySelector('.pictures');
 const fragment = document.createDocumentFragment();
-const isIdTemplate = document.querySelector('#picture').getAttribute('id');
 
 function createPhotoTemplate(photoData) {
   const thumbnail = template.cloneNode(true);
@@ -9,7 +8,7 @@ function createPhotoTemplate(photoData) {
 
   image.src = photoData.url;
   image.alt = photoData.description;
-  image.dataset.id = isIdTemplate;
+  image.dataset.id = photoData.id;
   thumbnail.querySelector('.picture__likes').textContent = photoData.likes;
   thumbnail.querySelector('.picture__comments').textContent = photoData.comments.length;
   return thumbnail;
