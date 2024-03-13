@@ -1,4 +1,4 @@
-import {createPhotos} from './stubs.js';
+import {photoData} from './stubs.js';
 import {renderPhotos} from './photos/thumbnails.js';
 
-renderPhotos(createPhotos);
+renderPhotos(photoData);

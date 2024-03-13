@@ -61,6 +61,6 @@ function getPhotos () {
   };
 }
 
-const createPhotos = Array.from({length:MAX_LENGTH_PHOTOS}, getPhotos());
+const photoData = Array.from({length:MAX_LENGTH_PHOTOS}, getPhotos());
 
-export {createPhotos};
+export {photoData};
