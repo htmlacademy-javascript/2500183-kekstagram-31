@@ -56,10 +56,10 @@ picturesContainer.addEventListener('click', (evt) => {
     pictureBigSrc.src = evt.target.closest('.picture__img').src;
     const cardId = evt.target.closest('.picture').dataset.id;
     const cardData = photoData.find((card) => Number(card.id) === Number(cardId));
-    counterLike.innerHTML = Number(cardData.likes);
-    counterFullComment.innerHTML = Number(cardData.comments.length);
+    counterLike.textContent = Number(cardData.likes);
+    counterFullComment.textContent = Number(cardData.comments.length);
     renderComments(cardData.comments);
-    descriptionBigPicture.innerHTML = cardData.description;
+    descriptionBigPicture.textContent = cardData.description;
     socialCommentCount.classList.add('hidden'); // убираю счетчик комментов
     commentsLoader.classList.add('hidden');
     openPictureBigImage ();
