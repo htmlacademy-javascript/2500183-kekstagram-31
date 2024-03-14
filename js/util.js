@@ -5,4 +5,8 @@ function getRandomInteger (a, b) {
   return Math.floor(result);
 }
 
-export {getRandomInteger};
+function isEscapeKey (evt) {
+  return evt.key === 'Escape';
+}
+
+export {getRandomInteger,isEscapeKey};
