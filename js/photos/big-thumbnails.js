@@ -4,8 +4,6 @@ import {resetDataBigPicture,fillBigPictureTemplate} from './data-for-big-thumbna
 
 const picturesContainer = document.querySelector('.pictures'); //родительский  контейнер-вешаем событие (делегирование)
 const pictureBig = document.querySelector('.big-picture'); // 'элемент который показывать при клике'
-const counterShowComment = document.querySelector('.social__comment-shown-count');
-counterShowComment.textContent = 2; //записываем два статичных комментария
 const closePictureBig = document.querySelector('.big-picture__cancel');//'элемент закрытия большого фото'
 const body = document.querySelector('body');
 
@@ -33,7 +31,7 @@ picturesContainer.addEventListener('click', (evt) => {
   if(!evt.target.closest('.picture__img')) {
     return;
   }
-
+  //console.log(getPictureData(evt).comments.slice(0, 4));
   fillBigPictureTemplate (getPictureData(evt));
   openPictureBigImage ();
 });
