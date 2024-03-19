@@ -8,7 +8,7 @@ const fragmentComment = document.createDocumentFragment();
 const listCommentsBigPicture = document.querySelector('.social__comments');// контейнер куда вставлять элементы списка комментариев
 const сommentElemBigPicture = document.querySelector('.social__comment');
 
-function createComment (commentData) {
+function createComment(commentData) {
   const templateComment = сommentElemBigPicture.cloneNode(true);
   templateComment.querySelector('.social__picture').src = commentData.avatar;
   templateComment.querySelector('.social__picture').alt = commentData.name;
@@ -17,13 +17,13 @@ function createComment (commentData) {
   return templateComment;
 }
 
-function resetDataBigPicture () {
+function resetDataBigPicture() {
   counterLike.innerHTML = '';// обнуляем лайки
   counterFullComment.innerHTML = '';
   descriptionBigPicture.innerHTML = '';
 }
 
-function fillBigPictureCommentsTemplate (commentsData) {
+function fillBigPictureCommentsTemplate(commentsData) {
   commentsData.forEach((item) => {
     const commentsTempalte = createComment(item);
     fragmentComment.appendChild(commentsTempalte);
@@ -32,7 +32,7 @@ function fillBigPictureCommentsTemplate (commentsData) {
   listCommentsBigPicture.appendChild(fragmentComment);
 }
 
-function fillBigPictureTemplate ({url, likes, comments, description }) {
+function fillBigPictureTemplate({url, likes, comments, description }) {
   socialCommentCount.classList.add('hidden'); // убираю счетчик комментов
   commentsLoader.classList.add('hidden');
 

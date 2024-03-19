@@ -9,22 +9,22 @@ counterShowComment.textContent = 2; //записываем два статичн
 const closePictureBig = document.querySelector('.big-picture__cancel');//'элемент закрытия большого фото'
 const body = document.querySelector('body');
 
-resetDataBigPicture ();
+resetDataBigPicture();
 
-function onDocumentKeydown (evt) {
+function onDocumentKeydown(evt) {
   if (isEscapeKey(evt)) {
     evt.preventDefault();
     closePictureBigImage ();
   }
 }
 
-function openPictureBigImage () {
+function openPictureBigImage() {
   pictureBig.classList.remove('hidden');
   document.addEventListener('keydown', onDocumentKeydown);
   body.classList.add('modal-open');
 }
 
-function getPictureData ({target}) {
+function getPictureData({target}) {
   const cardId = target.closest('.picture').dataset.id;
   return photoData.find((card) => Number(card.id) === Number(cardId));
 }
@@ -34,17 +34,17 @@ picturesContainer.addEventListener('click', (evt) => {
     return;
   }
 
-  fillBigPictureTemplate (getPictureData(evt));
-  openPictureBigImage ();
+  fillBigPictureTemplate(getPictureData(evt));
+  openPictureBigImage();
 });
 
-function closePictureBigImage () {
+function closePictureBigImage() {
   pictureBig.classList.add('hidden');
   body.classList.remove('modal-open');
   document.removeEventListener('keydown', onDocumentKeydown);
 }
 
 closePictureBig.addEventListener('click', () => {
-  closePictureBigImage ();
+  closePictureBigImage();
 });
 
