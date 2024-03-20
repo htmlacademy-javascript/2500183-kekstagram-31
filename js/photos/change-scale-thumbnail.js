@@ -6,29 +6,28 @@ const MIN_VALUE_SCALE = 25;
 const STEP_VALUE_SCALE = 25;
 
 function getTransformImage() {
-	 imagePreviewChange.style.transform = `scale(${parseFloat(valueControlScale.value) / 100})`;
+  imagePreviewChange.style.transform = `scale(${parseFloat(valueControlScale.value) / 100})`;
 }
 
 function shrinkValueScale() {
-  let currentValueScale = parseFloat(valueControlScale.value);
+  const currentValueScale = parseFloat(valueControlScale.value);
 
   if(currentValueScale === MIN_VALUE_SCALE) {
-  	return;
+    return;
   }
 
-  valueControlScale.value =  `${currentValueScale - STEP_VALUE_SCALE}%`;
+  valueControlScale.value = `${currentValueScale - STEP_VALUE_SCALE}%`;
   getTransformImage();
-  
 }
 
 function increaseValueScale() {
-	let currentValueScale = parseFloat(valueControlScale.value);
+  const currentValueScale = parseFloat(valueControlScale.value);
 
-    if(currentValueScale === MAX_VALUE_SCALE) {
-  	 return;
+  if(currentValueScale === MAX_VALUE_SCALE) {
+    return;
   }
 
-  valueControlScale.value =  `${currentValueScale + STEP_VALUE_SCALE}%`;
+  valueControlScale.value = `${currentValueScale + STEP_VALUE_SCALE}%`;
   getTransformImage();
 }
 
