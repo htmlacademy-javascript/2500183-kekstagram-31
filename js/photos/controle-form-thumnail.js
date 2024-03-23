@@ -1,6 +1,7 @@
 import {isEscapeKey} from '../util.js';
 import {shrinkValueScale,increaseValueScale} from './change-scale-thumbnail.js';
 import './change-effects-thumbnails.js';
+import './check-validate-form.js';
 
 const buttonControlSmaller = document.querySelector('.scale__control--smaller');//кнопка уменьшения масштаба
 const buttonControlBigger = document.querySelector('.scale__control--bigger');//кнопка увеличения масштаба
