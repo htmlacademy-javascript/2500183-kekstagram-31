@@ -1,6 +1,7 @@
 import {photoData} from '../stubs.js';
 import {isEscapeKey} from '../util.js';
 import {resetDataBigPicture,fillBigPictureTemplate} from './data-for-big-thumbnails.js';
+import './controle-form-thumnail.js';
 
 const picturesContainer = document.querySelector('.pictures'); //родительский  контейнер-вешаем событие (делегирование)
 const pictureBig = document.querySelector('.big-picture'); // 'элемент который показывать при клике'
