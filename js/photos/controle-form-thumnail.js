@@ -1,10 +1,9 @@
 import {isEscapeKey} from '../util.js';
-import {shrinkValueScale,increaseValueScale} from './change-scale-thumbnail.js';
+import './scale.js';
 import './change-effects-thumbnails.js';
-import './check-validate-form.js';
+import './form-validation.js';
 
-const buttonControlSmaller = document.querySelector('.scale__control--smaller');//кнопка уменьшения масштаба
-const buttonControlBigger = document.querySelector('.scale__control--bigger');//кнопка увеличения масштаба
+
 const imageFormPicture = document.querySelector('.img-upload__overlay');// элемент показа формы - убрать класс hiden
 const uploadInputPicture = document.querySelector('.img-upload__input');// загрузка файлов, повесить событие изменения этого поля!
 const body = document.querySelector('body');
@@ -35,12 +34,4 @@ uploadInputPicture.addEventListener('change', () => {
 
 closeImageFormPicture.addEventListener('click', () => {
   closeFormPicture();
-});
-
-buttonControlSmaller.addEventListener('click', () => {
-  shrinkValueScale();
-});
-
-buttonControlBigger.addEventListener('click', () => {
-  increaseValueScale();
 });

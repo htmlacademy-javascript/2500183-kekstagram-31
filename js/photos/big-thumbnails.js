@@ -1,6 +1,6 @@
 import {photoData} from '../stubs.js';
 import {isEscapeKey} from '../util.js';
-import {resetDataBigPicture,fillBigPictureTemplate} from './data-for-big-thumbnails.js';
+import {resetBigPicture,fillBigPictureTemplate} from './showingCommentsInModal.js';
 import './controle-form-thumnail.js';
 
 const picturesContainer = document.querySelector('.pictures'); //родительский  контейнер-вешаем событие (делегирование)
@@ -10,7 +10,7 @@ counterShowComment.textContent = 2; //записываем два статичн
 const closePictureBig = document.querySelector('.big-picture__cancel');//'элемент закрытия большого фото'
 const body = document.querySelector('body');
 
-resetDataBigPicture();
+//resetDataBigPicture();
 
 function onDocumentKeydown(evt) {
   if (isEscapeKey(evt)) {
@@ -43,6 +43,7 @@ function closePictureBigImage() {
   pictureBig.classList.add('hidden');
   body.classList.remove('modal-open');
   document.removeEventListener('keydown', onDocumentKeydown);
+  resetBigPicture();
 }
 
 closePictureBig.addEventListener('click', () => {
