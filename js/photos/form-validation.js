@@ -53,8 +53,10 @@ function hasValidPattern(hashTagsArray) {
 }
 
 function isHashtagsFieldValid(value) {
+  if (!value) {
+    return !value;
+  }
   const hashtagsArray = normilizedHastags(value);
-
   return (
     hasValidPattern(hashtagsArray) &&
     hasDublicates(hashtagsArray) &&

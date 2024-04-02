@@ -49,4 +49,3 @@ function closePictureBigImage() {
 closePictureBig.addEventListener('click', () => {
   closePictureBigImage();
 });
-
