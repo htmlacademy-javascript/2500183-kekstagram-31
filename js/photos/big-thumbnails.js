@@ -6,7 +6,7 @@ import './controle-form-thumnail.js';
 const picturesContainer = document.querySelector('.pictures'); //родительский  контейнер-вешаем событие (делегирование)
 const pictureBig = document.querySelector('.big-picture'); // 'элемент который показывать при клике'
 const counterShowComment = document.querySelector('.social__comment-shown-count');
-counterShowComment.textContent = 2; //записываем два статичных комментария
+counterShowComment.innerHTML = ''; //записываем два статичных комментария
 const closePictureBig = document.querySelector('.big-picture__cancel');//'элемент закрытия большого фото'
 const body = document.querySelector('body');
 
