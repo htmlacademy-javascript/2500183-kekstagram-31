@@ -2,6 +2,7 @@ import {photoData} from '../stubs.js';
 import {isEscapeKey} from '../util.js';
 import {resetBigPicture,fillBigPictureTemplate} from './showingCommentsInModal.js';
 import './controle-form-thumnail.js';
+//import {getData} from './api.js';
 
 const picturesContainer = document.querySelector('.pictures'); //родительский  контейнер-вешаем событие (делегирование)
 const pictureBig = document.querySelector('.big-picture'); // 'элемент который показывать при клике'
@@ -27,6 +28,7 @@ function openPictureBigImage() {
 
 function getPictureData({target}) {
   const cardId = target.closest('.picture').dataset.id;
+  //return getData().then(data) => data.find((card) => Number(card.id) === Number(cardId));
   return photoData.find((card) => Number(card.id) === Number(cardId));
 }
 
