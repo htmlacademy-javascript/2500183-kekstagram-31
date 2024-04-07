@@ -80,7 +80,7 @@ async function sendFormData(formElement) {
 
   if(isValid) {
     const formData = new FormData(formElement);
-    sendData(formData);
+    await sendData(formData);
   }
 }
 
