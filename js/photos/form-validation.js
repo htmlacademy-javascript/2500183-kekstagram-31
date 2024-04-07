@@ -1,3 +1,6 @@
+import {sendData} from './api.js';
+import {closeFormPicture} from './controle-form-thumnail.js';
+
 const form = document.querySelector('.img-upload__form');
 const hashtagsField = form.querySelector('.text__hashtags');
 const commentsField = form.querySelector('.text__description');
@@ -72,7 +75,38 @@ pristine.addValidator(
   'длина комментария не может составлять больше 140 символов'
 );
 
-form.addEventListener('submit', (evt) => {
+async function sendFormData(formElement) {
+  const isValid = pristine.validate();
+
+  if(isValid) {
+    const formData = new FormData(formElement);
+    sendData(formData);
+  }
+}
+
+function formSubmitHandler(evt) {
   evt.preventDefault();
-  pristine.validate();
+  sendFormData(evt.target);
+  //console.log(evt.target);
+}
+
+form.addEventListener('submit',formSubmitHandler );
+
+
+//await sendData(formData);
+    //await sendData(new FormData(formElement));
+    //closeFormPicture ();
+    //console.log(new FormData(formElement));
+
+/*
+  form.addEventListener('submit', (evt) => {
+    evt.preventDefault();
+
+     const isValid = pristine.validate();
+       if (isValid) {
+        const formData = new FormData(evt.target);
+        co
+        sendData(formData);
+       }
 });
+*/

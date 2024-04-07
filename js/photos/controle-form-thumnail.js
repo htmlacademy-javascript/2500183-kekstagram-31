@@ -35,3 +35,5 @@ uploadInputPicture.addEventListener('change', () => {
 closeImageFormPicture.addEventListener('click', () => {
   closeFormPicture();
 });
+
+export {closeFormPicture};
