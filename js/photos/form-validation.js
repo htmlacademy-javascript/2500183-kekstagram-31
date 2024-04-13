@@ -1,6 +1,25 @@
+import {sendData} from './api.js';
+//import {closeFormPicture} from './controle-form-thumnail.js';
+import {resetScale} from './scale.js';
+import {resetEffects} from './change-effects-thumbnails.js';
+
 const form = document.querySelector('.img-upload__form');
 const hashtagsField = form.querySelector('.text__hashtags');
 const commentsField = form.querySelector('.text__description');
+const submitButton = document.querySelector('#upload-submit');
+
+function resetInputUser(){
+  hashtagsField.value = '';
+  commentsField.value = '';
+}
+
+function blockSubmitButton() {
+  submitButton.disabled = true;
+}
+
+//function unblockSubmitButton() {
+//submitButton.disabled = false;
+//}
 
 const MAX_COMMENT_LENGTH = 140;
 const MAX_HASHTAGS_COUNT = 5;
@@ -72,7 +91,24 @@ pristine.addValidator(
   'длина комментария не может составлять больше 140 символов'
 );
 
-form.addEventListener('submit', (evt) => {
+async function sendFormData(formElement) {
+  const isValid = pristine.validate();
+
+  if(isValid) {
+    const formData = new FormData(formElement);
+    await sendData(formData);
+  }
+}
+
+function formSubmitHandler(evt) {
   evt.preventDefault();
-  pristine.validate();
-});
+  resetInputUser();
+  resetScale();
+  resetEffects();
+  pristine.reset();
+  blockSubmitButton();
+  //closeFormPicture();
+  sendFormData(evt.target);
+}
+
+form.addEventListener('submit',formSubmitHandler);

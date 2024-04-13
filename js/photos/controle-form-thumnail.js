@@ -26,6 +26,7 @@ function closeFormPicture() {
   imageFormPicture.classList.add('hidden');
   body.classList.remove('modal-open');
   document.removeEventListener('keydown', onDocumentKeydownForm);
+  uploadInputPicture.value = '';
 }
 
 uploadInputPicture.addEventListener('change', () => {
@@ -35,3 +36,5 @@ uploadInputPicture.addEventListener('change', () => {
 closeImageFormPicture.addEventListener('click', () => {
   closeFormPicture();
 });
+
+export {closeFormPicture};
