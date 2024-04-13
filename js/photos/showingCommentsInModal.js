@@ -69,7 +69,7 @@ function fillBigPictureTemplate({url, likes, comments, description }) {
   bigPicture.querySelector('.likes-count').textContent = likes;
   bigPicture.querySelector('.social__comment-total-count').textContent = comments.length;
   bigPicture.querySelector('.social__caption').textContent = description;
-/*
+  /*
   if (comments.length < 5) {
     bigPicture.querySelector('.social__comments-loader').classList.add('hidden');
     bigPicture.querySelector('.social__comment-count').classList.add('hidden');

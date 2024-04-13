@@ -32,7 +32,7 @@ export function initializeBigPhoto(photosData) {
       fillBigPictureTemplate(photoObject);
       openPictureBigImage();
     }
-});
+  });
 }
 
 function closePictureBigImage() {

@@ -10,10 +10,6 @@ const Method = {
   GET: 'GET',
   POST: 'POST',
 };
-//const Method = {
-  //GET: 'GET',
-  //POST: 'POST',
-//};
 
 const ErrorText = {
   [Method.GET]: 'Не удалось загрузить данные.Попробуйте еще раз.',
@@ -34,6 +30,3 @@ async function sendData(body) {
 }
 
 export {getData,sendData};
-
-
-

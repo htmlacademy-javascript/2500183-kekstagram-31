@@ -93,7 +93,10 @@ function updateSettingsMinStepBrightness() {// зной
 function getValueEffectLevel () {
   valueEffectLevel.value = Number(containerSlider.noUiSlider.get());// Задать вопорс Наставнику - не видно поле в разметке!!!
 }
-
+function resetEffects() {
+  resetStyleSettings();
+  hideClassSlider();
+}
 
 monitoreEffects.addEventListener('change', (evt) => { // отслеживаем выбранный input
   showClassSlider();
@@ -139,8 +142,8 @@ monitoreEffects.addEventListener('change', (evt) => { // отслеживаем 
   }
 
   if(String(evt.target.value) === 'none'){
-    resetStyleSettings();
-    hideClassSlider();
+    resetEffects();
   }
 });
 
+export{resetEffects};

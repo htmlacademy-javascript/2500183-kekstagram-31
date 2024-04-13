@@ -23,38 +23,11 @@ biggerBtn.addEventListener('click', () => {
   }
 });
 
-/*
-
-buttonControlBigger.addEventListener('click', () => {
-  increaseValueScale();
-});
-
-
-function getTransformImage() {
-  imagePreviewChange.style.transform = `scale(${parseFloat(valueControlScale.value) / 100})`;
+function resetScale() {
+  input.value = '';
+  input.value = `${MAX}%`;
+  image.style.cssText += `transform: scale(${parseInt(input.value, 10) / 100})`;
 }
 
-function shrinkValueScale() {
-  const currentValueScale = parseFloat(valueControlScale.value);
+export {resetScale};
 
-  if(currentValueScale === MIN_VALUE_SCALE) {
-    return;
-  }
-
-  valueControlScale.value = `${currentValueScale - STEP_VALUE_SCALE}%`;
-  getTransformImage();
-}
-
-function increaseValueScale() {
-  const currentValueScale = parseFloat(valueControlScale.value);
-
-  if(currentValueScale === MAX_VALUE_SCALE) {
-    return;
-  }
-
-  valueControlScale.value = `${currentValueScale + STEP_VALUE_SCALE}%`;
-  getTransformImage();
-}
-
-export {shrinkValueScale,increaseValueScale};
-*/

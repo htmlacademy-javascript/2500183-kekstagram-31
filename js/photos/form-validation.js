@@ -1,9 +1,25 @@
 import {sendData} from './api.js';
-import {closeFormPicture} from './controle-form-thumnail.js';
+//import {closeFormPicture} from './controle-form-thumnail.js';
+import {resetScale} from './scale.js';
+import {resetEffects} from './change-effects-thumbnails.js';
 
 const form = document.querySelector('.img-upload__form');
 const hashtagsField = form.querySelector('.text__hashtags');
 const commentsField = form.querySelector('.text__description');
+const submitButton = document.querySelector('#upload-submit');
+
+function resetInputUser(){
+  hashtagsField.value = '';
+  commentsField.value = '';
+}
+
+function blockSubmitButton() {
+  submitButton.disabled = true;
+}
+
+//function unblockSubmitButton() {
+//submitButton.disabled = false;
+//}
 
 const MAX_COMMENT_LENGTH = 140;
 const MAX_HASHTAGS_COUNT = 5;
@@ -86,27 +102,13 @@ async function sendFormData(formElement) {
 
 function formSubmitHandler(evt) {
   evt.preventDefault();
+  resetInputUser();
+  resetScale();
+  resetEffects();
+  pristine.reset();
+  blockSubmitButton();
+  //closeFormPicture();
   sendFormData(evt.target);
-  //console.log(evt.target);
 }
 
-form.addEventListener('submit',formSubmitHandler );
-
-
-//await sendData(formData);
-    //await sendData(new FormData(formElement));
-    //closeFormPicture ();
-    //console.log(new FormData(formElement));
-
-/*
-  form.addEventListener('submit', (evt) => {
-    evt.preventDefault();
-
-     const isValid = pristine.validate();
-       if (isValid) {
-        const formData = new FormData(evt.target);
-        co
-        sendData(formData);
-       }
-});
-*/
+form.addEventListener('submit',formSubmitHandler);
